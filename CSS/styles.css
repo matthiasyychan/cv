@@ -20,7 +20,10 @@
     padding:70px 30px 70px 30px;
     margin:0px auto;
     background: #4671e9 ;
-    color:floralwhite;
+}
+
+.jumbotron-text {
+    color: floralwhite ;
 }
 
 address{
@@ -37,3 +40,8 @@ body{
 .navbar-dark {
      background-color: #172fb4;
 }
+
+.card-header {
+    color: black;
+    background-color:transparent
+  }
