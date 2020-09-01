@@ -55,7 +55,20 @@ border-color: floralwhite;
 border-radius: 40%;
 }
 
+.handwriting{
+    font-family: Parisienne, Helvetica
+}
+
+.image-smaller {
+width: 200px;
+}
+
+.image-border {
+border-style: solid;
+border-radius: 40%;
+}
+
 .card-header {
     color: black;
     background-color:transparent
-  }
+}
