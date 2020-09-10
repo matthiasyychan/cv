@@ -64,11 +64,6 @@ border-style: solid;
 border-radius: 40%;
 }
 
-.card-header {
-    color: black;
-    background-color:transparent
-}
-
 .tab-content {
     padding: 10px;
 }
