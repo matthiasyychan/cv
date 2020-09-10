@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
@@ -25,20 +26,22 @@
             </button>
             <a class="handwriting navbar-brand" href="#">Matthias Chan</a>
             <div class="collapse navbar-collapse" id="Navbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-id-card fa-lg"></span> Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experiences-header"><span class="fa fa-briefcase fa-lg"></span> Experiences</a></li>
-                <li class="nav-item"><a class="nav-link" href="#education-header"><span class="fa fa-graduation-cap fa-lg"></span> Education</a></li>
-                <li class="nav-item"><a class="nav-link" href="#abilities-header"><span class="fa fa-gem fa-lg"></span> Abilities</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html"><span class="far fa-envelope fa-lg"></span> Contact</a></li>
-            </ul>
-            <ul class="navbar-nav">
-                <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/matthias-chan/"><i class="fab fa-linkedin"></i></a> &nbsp; &nbsp;
-                <a class="btn btn-social-icon btn-github" href="https://github.com/matthiasyychan"><i class="fab fa-github"></i></a>&nbsp; &nbsp;
-            </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-id-card fa-lg"></span> Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiences-header"><span class="fa fa-briefcase fa-lg"></span> Experiences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education-header"><span class="fa fa-graduation-cap fa-lg"></span> Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects-header"><span class="fas fa-drafting-compass fa-lg"></span> Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#abilities-header"><span class="fa fa-gem fa-lg"></span> Abilities</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/matthias-chan/"><i class="fab fa-linkedin"></i></a> &nbsp; &nbsp;
+                    <a class="btn btn-social-icon btn-github" href="https://github.com/matthiasyychan"><i class="fab fa-github"></i></a>&nbsp; &nbsp;
+                    <a class="btn btn-social-icon btn-reddit" href="contact.html"><i class="far fa-envelope fa-lg"></i></a>&nbsp; &nbsp;
+                </ul>
             </div>            
-    </div>
-</nav>
+        </div>
+    </nav>
+
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -214,8 +217,28 @@
                 </ul>
             </div>
         </div>
-
         
+        <div class="row row-content align-items-center" id="projects-header">
+            <div class="col-12">
+                <h2>Projects</h2>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="card">
+                    <h3 class="card-header bg-primary text-white">Restaurant Website</h3>
+                    <div class="card-body">
+                        <div class="col col-sm order-sm-first col-md">
+                            <p>A front-end website which allow members to login and reserve tables for a restaurant.</p>
+                            <div class="media">
+                                <a href="https://matthiasyychan.github.io/bootstrap" target="_blank"><img class="d-flex mr-3 img-thumbnail align-self-center"
+                                        src="img/restaurant.JPG" alt="Uthappizza"></a>
+                            </div>  
+                        </div>
+                        <dl class="row"></dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row row-content align-items-center" id="abilities-header">
             <div class="col-12">
                 <h2>Abilities</h2>
@@ -678,8 +701,8 @@
                         <li><a href="#">Profile</a></li>
                         <li><a href="#experiences-header">Experiences</a></li>
                         <li><a href="#education-header">Education</a></li>
+                        <li><a href="#projects-header">Projects</a></li>
                         <li><a href="#abilities-header">Abilities</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
            </div>
