@@ -81,20 +81,21 @@
             
             <div id="accordion">
                 <div class="card">
-                    <div class="card-header" role="tab" id="bochk2-head">
+                    <div class="card-header" role="tab" id="cnsd-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#bochk2">
-                            <h4>System Analyst <span class="badge badge-secondary">Latest</span></h4>
-                            <h5><u>Bank of China Hong Kong Limited</u></h5>
-                            <h6><i>Apr 2024 – Current</i></h6>
+                        <a data-toggle="collapse" data-target="#cnsd">
+                            <h4>Research Manager <span class="badge badge-secondary">Latest</span></h4>
+                            <h5><u>Census and Statistics Department</u></h5>
+                            <h6><i>Apr 2023 – Current</i></h6>
                         </a>
                     </h3>
                     </div>
-                    <div class="collapse show" id="bochk2" data-parent="#accordion">
+                    <div class="collapse show" id="bochk" data-parent="#accordion">
                         <div class="card-body">
                             <p>
                                 <ul>
-                                    <li>Design and enhance real-time quantitative trading systems, conduct requirement analysis, manage development and testing activities, and utilize KDB/Q</li>
+                                    <li>Act as Webmaster and responsible for the enhancement and maintenance of the website</li>
+									<li>Design, implement and upkeep statistical systems</li>
                                 </ul>
                             </p>
                         </div>
@@ -102,35 +103,12 @@
                 </div>
 				
                 <div class="card">
-                    <div class="card-header" role="tab" id="cnsd-header">
-                    <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#cnsd">
-                            <h4>Research Manager </h4>
-                            <h5><u>Census and Statistics Department</u></h5>
-                            <h6><i>Apr 2023 – Apr 2024 · 1 year</i></h6>
-                        </a>
-                    </h3>
-                    </div>
-                    <div class="collapse" id="cnsd" data-parent="#accordion">
-                        <div class="card-body">
-                            <p>
-                                <ul>
-                                    <li>Act as Webmaster and responsible for the enhancement and maintenance of the website</li>
-                                    <li>Achieved an 10.7% increase in website traffic for Q2-Q4 2023 compared to the same period in 2022</li>
-									<li>Design, implement and upkeep statistical systems</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
                     <div class="card-header" role="tab" id="bochk-header">
                     <h3 class="mb-0">
                         <a class="collapsed" data-toggle="collapse" data-target="#bochk">
                             <h4>Application Developer (Quantitative Trading) </h4>
                             <h5><u>Bank of China Hong Kong Limited</u></h5>
-                            <h6><i>Dec 2021 – Apr 2023 · 1.25 year</i></h6>
+                            <h6><i>Dec 2021 – Apr 2023</i></h6>
                         </a>
                     </h3>
                     </div>
@@ -138,7 +116,7 @@
                         <div class="card-body">
                             <p>
                                 <ul>
-                                    <li>Design and enhance real-time quantitative trading systems, conduct requirement analysis, manage development and testing activities, and utilize KDB/Q</li>
+                                    <li>Conduct UAT on algorithmic trading software for Global Market with Java, Python, q Programming and kdb+</li>
                                 </ul>
                             </p>
                         </div>
