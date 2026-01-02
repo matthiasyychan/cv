@@ -393,6 +393,16 @@ body::after {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
+/* Scroll offset for anchor targets */
+#profile-header,
+#experiences-header,
+#education-header,
+#projects-header,
+#abilities-header {
+    scroll-margin-top: 80px; /* Account for fixed navbar height */
 }
 
 /* Modern navbar brand */

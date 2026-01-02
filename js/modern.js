@@ -66,6 +66,15 @@ class ModernCV {
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close mobile menu after clicking (for responsive navbar)
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        // Use Bootstrap's collapse method to properly close the menu
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                        bsCollapse.hide();
+                    }
                 }
             });
         });
