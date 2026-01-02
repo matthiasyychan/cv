@@ -1,3 +1,14 @@
+/* Modern CSS for 2026 */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-color: #ff6b6b;
+    --text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --border-radius: 15px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .row-header{
     margin:0px auto;
     padding:0px;
@@ -5,25 +16,43 @@
 
 .row-content {
     margin:0px auto;
-    padding: 50px 0px 50px 0px;
-    border-bottom: 1px ridge;
+    padding: 60px 0px 60px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     min-height:400px;
+    transition: var(--transition);
 }
 
 .footer{
-    background-color: #b6d2f8;
+    background: var(--primary-gradient);
     margin:0px auto;
-    padding: 20px 0px 20px 0px;
+    padding: 30px 0px 30px 0px;
+    color: white;
+    box-shadow: var(--box-shadow);
 }
 
 .jumbotron {
-    padding:70px 30px 70px 30px;
+    padding:80px 30px 80px 30px;
     margin:0px auto;
-    background: #4671e9 ;
+    background: var(--primary-gradient);
+    position: relative;
+    overflow: hidden;
+}
+
+.jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.1;
 }
 
 .jumbotron-text {
-    color: floralwhite ;
+    color: white;
+    text-shadow: var(--text-shadow);
+    font-weight: 300;
 }
 
 address{
@@ -35,35 +64,194 @@ address{
 body{
     padding:50px 0px 0px 0px;
     z-index:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 .navbar-dark {
-     background-color: #172fb4;
+     background: var(--primary-gradient);
+     backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .handwriting{
-    font-family: Parisienne, Helvetica
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
 .image-smaller {
-width: 200px;
+    width: 200px;
+    transition: var(--transition);
 }
 
 .image-border {
-border-style: solid;
-border-color: floralwhite;
-border-radius: 40%;
+    border: 3px solid rgba(255,255,255,0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
 }
 
-.handwriting{
-    font-family: Parisienne, Helvetica
-}
-
-.image-border {
-border-style: solid;
-border-radius: 40%;
+.image-border:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .tab-content {
-    padding: 10px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--border-radius);
+}
+
+/* Modern card styling */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.9);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Modern button styling */
+.btn {
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-primary {
+    background: var(--secondary-gradient);
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+}
+
+/* Modern table styling */
+.table {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.table thead th {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Star rating styling */
+.fa-star.checked {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Modern navbar brand */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+}
+
+/* Badge styling */
+.badge {
+    border-radius: 20px;
+    font-weight: 500;
+    padding: 0.5em 1em;
+}
+
+/* Link styling */
+a {
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Modern Responsive Design */
+@media (max-width: 576px) {
+    .jumbotron {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .image-smaller {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .jumbotron {
+        padding: 60px 30px;
+    }
+
+    .image-smaller {
+        width: 180px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .row-content {
+        padding: 50px 20px;
+    }
+}
+
+/* Modern breakpoints for large screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .jumbotron {
+        padding: 100px 40px;
+    }
+
+    .row-content {
+        padding: 80px 0;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
 }

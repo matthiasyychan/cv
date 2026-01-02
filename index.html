@@ -2,23 +2,28 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177771261-2"></script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'UA-177771261-2');
+    gtag('config', 'G-XXXXXXXXXX');
     </script>
 
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Matthias Chan - Quant Developer & Computer Science Professional. Specializing in quantitative trading, AI/ML, and full-stack development.">
+    <meta name="keywords" content="quant developer, computer science, quantitative trading, machine learning, full-stack development, Hong Kong">
+    <meta name="author" content="Matthias Chan">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
     <link rel="stylesheet" href="CSS/styles.css">
@@ -30,9 +35,9 @@
 
 <body>
 
-    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top" role="navigation" aria-label="Main navigation">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="handwriting navbar-brand" href="#">Matthias Chan</a>
@@ -53,7 +58,7 @@
         </div>
     </nav>
 
-    <header class="jumbotron">
+    <header class="jumbotron" role="banner">
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-3">
@@ -73,17 +78,17 @@
         </div>
     </header>
 
-    <div class="container">
-        <div class="row row-content align-items-center" id="experiences-header">
+    <main class="container">
+        <section class="row row-content align-items-center" id="experiences-header" aria-labelledby="experiences-title">
             <div class="col-12">
-                <h2>Experiences</h2>
+                <h2 id="experiences-title">Experiences</h2>
             </div>
             
             <div id="accordion">
                 <div class="card">
                     <div class="card-header" role="tab" id="bochk2-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#bochk2">
+                        <a data-bs-toggle="collapse" data-bs-target="#bochk2">
                             <h4>System Analyst <span class="badge badge-secondary">Latest</span></h4>
                             <h5><u>Bank of China Hong Kong Limited</u></h5>
                             <h6><i>Apr 2024 – Current</i></h6>
@@ -107,7 +112,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="cnsd-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#cnsd">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#cnsd">
                             <h4>Research Manager </h4>
                             <h5><u>Census and Statistics Department</u></h5>
                             <h6><i>Apr 2023 – Apr 2024 · 1 year</i></h6>
@@ -130,7 +135,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="bochk-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#bochk">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#bochk">
                             <h4>Application Developer (Quantitative Trading) </h4>
                             <h5><u>Bank of China Hong Kong Limited</u></h5>
                             <h6><i>Dec 2021 – Apr 2023 · 1.25 year</i></h6>
@@ -151,7 +156,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="iaspec-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#iaspec">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#iaspec">
                             <h4>Product Engineer </h4>
                             <h5><u>iASPEC Services Limited</u></h5>
                             <h6><i>Dec 2020 – Dec 2021 · 1 year</i></h6>
@@ -172,7 +177,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="bnpp-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#ccba">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#ccba">
                             <h4>Manager, Commercial Banking </h4>
                             <h5><u>China Construction Bank (Asia) Corporation Limited</u></h5>
                             <h6><i>Jul 2018 – Jun 2020 · 2 years</i></h6>
@@ -195,7 +200,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="bnpp-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#bnpp">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#bnpp">
                             <h4>APAC Vendor Risk Specialist </h4>
                             <h5><u>BNP Paribas SA, Hong Kong Branch</u></h5>
                             <h6><i>Jul 2017 – Jun 2018 · 1 year</i></h6>
@@ -219,7 +224,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="bnpp-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#hcbs">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#hcbs">
                             <h4>Assistant Manager, Financial Crime Compliance </h4>
                             <h5><u>HSBC Broking Services (Asia) Limited</u></h5>
                             <h6><i>Dec 2016 – Feb 2017 · 3 months</i></h6>
@@ -236,7 +241,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="db-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#db">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#db">
                             <h4>Client Onboarding Officer </h4>
                             <h5><u>Deutsche Bank AG, Hong Kong Branch</u></h5>
                             <h6><i>Apr 2016 – Dec 2016 · 11 months</i></h6>
@@ -258,7 +263,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="sc-header">
                     <h3 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" data-target="#sc">
+                        <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#sc">
                             <h4>Client Due Diligence Specialist </h4>
                             <h5><u>Standard Chartered Bank (Hong Kong) Limited</u></h5>
                             <h6><i>Mar 2015 – Mar 2016 · 1 year</i></h6>
@@ -273,12 +278,11 @@
                 </div>
 
             </div>
+        </section>
 
-        </div>
-
-        <div class="row row-content align-items-center" id="education-header">
+        <section class="row row-content align-items-center" id="education-header" aria-labelledby="education-title">
             <div class="col-12">
-                <h2>Education</h2>
+                <h2 id="education-title">Education</h2>
             </div>
 
             <div id="accordion">
@@ -286,7 +290,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="wqu-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#wqu">
+                        <a data-bs-toggle="collapse" data-bs-target="#wqu">
                             <h4><a href="https://www.wqu.edu/mscfe" target="_blank">MSc in Financial Engineering </a></h4>
                             <h5><u>WorldQuant University</u></h5>
                             <h6><i>2026 - 2028</i></h6>
@@ -298,7 +302,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="hku-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#hku">
+                        <a data-bs-toggle="collapse" data-bs-target="#hku">
                             <h4><a href="https://www.msc-cs.hku.hk/" target="_blank">MSc in Computer Science</a></h4>
                             <h5><u>The University of Hong Kong</u></h5>
                             <h6><i>2018 - 2021</i></h6>
@@ -317,7 +321,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="cam-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#cam">
+                        <a data-bs-toggle="collapse" data-bs-target="#cam">
                             <h4>MPhil in Finance and Economics </h4>
                             <h5><u><a href="https://www.cam.ac.uk/about-the-university" target="_blank">The University of Cambridge</a></u></h5>
                             <h6><i>2014 - 2015</i></h6>
@@ -329,7 +333,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="manu-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#manu">
+                        <a data-bs-toggle="collapse" data-bs-target="#manu">
                             <h4>Bachelor of Economic Science (Hons) – First-Class </h4>
                             <h5><u><a href="https://www.manchester.ac.uk/" target="_blank">The University of Manchester</a></u></h5>
                             <h6><i>2011 - 2014</i>
@@ -355,7 +359,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="mitx-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#mitx">
+                        <a data-bs-toggle="collapse" data-bs-target="#mitx">
                             <h4><a href="https://courses.edx.org/certificates/68264c422fc44a04a87898a236ad4e2a" target="_blank">Introduction to Computer Science and Programming Using Python</a> </h4>
                             <h5><u><a href="https://www.edx.org/school/mitx" target="_blank">MITx</a></u></h5>
                         </a>
@@ -366,7 +370,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="hkustx-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#hkustx">
+                        <a data-bs-toggle="collapse" data-bs-target="#hkustx">
                             <h4>Introduction to Java Programming - <a href="https://courses.edx.org/certificates/e493681957b248d9ac692dd3ca567e26" target="_blank">Part 1 </a> & <a href="https://courses.edx.org/certificates/4797ba3f60434cb5b27d2696d7c4dfbb" target="_blank">Part 2 </a> </h4>
                             <h5><u><a href="https://www.edx.org/school/hkustx" target="_blank">HKUSTx</a></u></h5>
                         </a>
@@ -377,7 +381,7 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="hkux-head">
                     <h3 class="mb-0">
-                        <a data-toggle="collapse" data-target="#hkux">
+                        <a data-bs-toggle="collapse" data-bs-target="#hkux">
                             <h4><a href="https://courses.edx.org/certificates/ac6f3d3711ad45ca8cc4448b454ebb58" target="_blank">Introduction to FinTech</a> </h4>
                             <h5><u><a href="https://www.edx.org/school/hkux" target="_blank">HKUx</a></u></h5>
                         </a>
@@ -387,11 +391,11 @@
 
             </div>
 
-        </div>
-        
-        <div class="row row-content align-items-center" id="projects-header">
+        </section>
+
+        <section class="row row-content align-items-center" id="projects-header" aria-labelledby="projects-title">
             <div class="col-12">
-                <h2>Projects</h2>
+                <h2 id="projects-title">Projects</h2>
             </div>
             <div class = "row">
                 <div class="col-12 col-sm-6">
@@ -426,22 +430,22 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="row row-content align-items-center" id="abilities-header">
+        <section class="row row-content align-items-center" id="abilities-header" aria-labelledby="abilities-title">
             <div class="col-12">
-                <h2>Abilities</h2>
+                <h2 id="abilities-title">Abilities</h2>
             </div>
 
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
+                    <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" href="#skills" role="tab" aria-controls="skills" aria-selected="true">Skills</a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#languages" role="tab" aria-controls="languages" aria-selected="false">Languages</a>
+                    <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#languages" role="tab" aria-controls="languages" aria-selected="false">Languages</a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools</a>
+                    <a class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools</a>
                   </li>
             </ul>
 
@@ -716,13 +720,13 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Linux</th>
+                                            <th>Linux/Red Hat</th>
                                             <td>
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star checked"></span>
-                                                <span class="far fa-star"></span>
+                                                <span class="fa fa-star checked"></span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -898,10 +902,9 @@
                     
                 </div>
             </div>
-
-        </div>
-    </div>
-    <footer class="footer">
+        </section>
+    </main>
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="row">             
                 <div class="col-4 offset-5 col-sm-6">
@@ -917,15 +920,15 @@
            </div>
            <div class="row justify-content-center">             
                 <div class="col-auto">
-                    <p>© Copyright 2020 Matthias Chan</p>
+                    <p>© Copyright 2026 Matthias Chan</p>
                 </div>
            </div>
         </div>
     </footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Modern JavaScript -->
+    <script src="js/modern.js"></script>
 </body>
 
 </html>
