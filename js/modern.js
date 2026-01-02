@@ -30,13 +30,19 @@ class ModernCV {
             const toggle = document.getElementById('darkModeToggle');
             const icon = document.getElementById('darkModeIcon');
 
-            // Check for saved theme preference
+            // Check for saved theme preference or default to dark
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                // Apply dark mode immediately
+            if (savedTheme === 'light') {
+                // Only set light mode if explicitly saved
+                icon.className = 'fas fa-moon';
+            } else {
+                // Default to dark mode
                 setTimeout(() => {
                     this.enableDarkMode();
                     icon.className = 'fas fa-sun';
+                    if (!savedTheme) {
+                        localStorage.setItem('theme', 'dark');
+                    }
                 }, 100);
             }
 
@@ -163,33 +169,80 @@ class ModernCV {
 
         // Update all cards for dark mode
         document.querySelectorAll('.card').forEach(card => {
-            card.style.backgroundColor = 'rgba(255, 255, 255, 0.05) !important';
-            card.style.borderColor = 'rgba(255, 255, 255, 0.1) !important';
-            card.style.color = '#ffffff !important';
+            card.style.setProperty('background-color', 'rgba(255, 255, 255, 0.05)', 'important');
+            card.style.setProperty('border-color', 'rgba(255, 255, 255, 0.1)', 'important');
+            card.style.setProperty('color', '#ffffff', 'important');
         });
 
         // Update navbar
         const navbar = document.querySelector('.navbar-dark');
-        if (navbar) navbar.style.background = 'rgba(255, 255, 255, 0.05) !important';
+        if (navbar) {
+            navbar.style.setProperty('background', 'rgba(255, 255, 255, 0.05)', 'important');
+            navbar.style.setProperty('color', '#ffffff', 'important');
+        }
 
         // Update jumbotron
         const jumbotron = document.querySelector('.jumbotron');
-        if (jumbotron) jumbotron.style.background = 'rgba(255, 255, 255, 0.05) !important';
+        if (jumbotron) {
+            jumbotron.style.setProperty('background', 'rgba(255, 255, 255, 0.05)', 'important');
+            jumbotron.style.setProperty('color', '#ffffff', 'important');
+        }
 
         // Update footer
         const footer = document.querySelector('.footer');
-        if (footer) footer.style.background = 'rgba(255, 255, 255, 0.05) !important';
+        if (footer) {
+            footer.style.setProperty('background', 'rgba(255, 255, 255, 0.05)', 'important');
+            footer.style.setProperty('color', '#ffffff', 'important');
+        }
 
         // Update form inputs for dark mode
         document.querySelectorAll('input, textarea, select').forEach(input => {
-            input.style.backgroundColor = 'rgba(255, 255, 255, 0.05) !important';
-            input.style.borderColor = 'rgba(255, 255, 255, 0.2) !important';
-            input.style.color = '#ffffff !important';
+            input.style.setProperty('background-color', 'rgba(255, 255, 255, 0.05)', 'important');
+            input.style.setProperty('border-color', 'rgba(255, 255, 255, 0.2)', 'important');
+            input.style.setProperty('color', '#ffffff', 'important');
         });
 
         // Update tabs
         document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.style.background = 'rgba(255, 255, 255, 0.05) !important';
+            tab.style.setProperty('background', 'rgba(255, 255, 255, 0.05)', 'important');
+            tab.style.setProperty('color', '#ffffff', 'important');
+        });
+
+        // Force ALL text elements to white with !important
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, th, span, a, label, dt, dd, i, b, strong, em').forEach(el => {
+            // Skip if it's a special styled element like the handwriting
+            if (!el.classList.contains('handwriting') && !el.style.backgroundClip) {
+                el.style.setProperty('color', '#ffffff', 'important');
+            }
+        });
+
+        // Update table styling for dark mode
+        document.querySelectorAll('.table, .table tbody, .table tbody tr, .table tbody td, .table tbody th').forEach(table => {
+            table.style.setProperty('color', '#ffffff', 'important');
+        });
+
+        // Update card text specifically with !important
+        document.querySelectorAll('.card-text, .card-body, .card-body *, .card-header, .card-header *').forEach(el => {
+            if (!el.classList.contains('handwriting') && !el.classList.contains('badge')) {
+                el.style.setProperty('color', '#ffffff', 'important');
+            }
+        });
+
+        // Update all list items in cards
+        document.querySelectorAll('.card ul li, .card ol li').forEach(li => {
+            li.style.setProperty('color', '#ffffff', 'important');
+        });
+
+        // Update breadcrumb and other Bootstrap components
+        document.querySelectorAll('.breadcrumb, .breadcrumb-item').forEach(el => {
+            el.style.setProperty('color', '#ffffff', 'important');
+        });
+
+        // Force update all divs that might contain text
+        document.querySelectorAll('div, section, article, aside').forEach(el => {
+            if (el.textContent && !el.closest('.handwriting')) {
+                el.style.setProperty('color', '#ffffff', 'important');
+            }
         });
     }
 
@@ -197,39 +250,62 @@ class ModernCV {
         // Remove Bootstrap dark theme
         document.documentElement.removeAttribute('data-bs-theme');
 
-        // Reset to original futuristic theme (the default is already dark-like)
-        document.body.style.background = '';
-        document.body.style.color = '';
+        // Set light mode with proper light background
+        document.body.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important';
+        document.body.style.color = '#2c3e50 !important';
 
-        // Reset all cards
+        // Reset all cards for light mode with dark text
         document.querySelectorAll('.card').forEach(card => {
-            card.style.backgroundColor = '';
-            card.style.borderColor = '';
-            card.style.color = '';
+            card.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            card.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+            card.style.color = '#2c3e50';
         });
 
-        // Reset navbar
+        // Reset navbar for light mode
         const navbar = document.querySelector('.navbar-dark');
-        if (navbar) navbar.style.background = '';
+        if (navbar) {
+            navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important';
+            navbar.style.color = '#ffffff !important';
+        }
 
-        // Reset jumbotron
+        // Reset jumbotron for light mode
         const jumbotron = document.querySelector('.jumbotron');
-        if (jumbotron) jumbotron.style.background = '';
+        if (jumbotron) {
+            jumbotron.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important';
+            jumbotron.style.color = '#ffffff !important';
+        }
 
-        // Reset footer
+        // Reset footer for light mode
         const footer = document.querySelector('.footer');
-        if (footer) footer.style.background = '';
+        if (footer) {
+            footer.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important';
+            footer.style.color = '#ffffff !important';
+        }
 
-        // Reset form inputs
+        // Reset form inputs for light mode with dark text
         document.querySelectorAll('input, textarea, select').forEach(input => {
-            input.style.backgroundColor = '';
-            input.style.borderColor = '';
-            input.style.color = '';
+            input.style.backgroundColor = '#ffffff';
+            input.style.borderColor = '#ced4da';
+            input.style.color = '#2c3e50';
         });
 
-        // Reset tabs
+        // Reset tabs for light mode with dark text
         document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.style.background = '';
+            tab.style.background = 'rgba(255, 255, 255, 0.9)';
+            tab.style.color = '#2c3e50';
+        });
+
+        // Update text colors for light mode
+        document.querySelectorAll('h2, h3, h4, h5, h6, p, li, td, th, span').forEach(el => {
+            if (!el.closest('.jumbotron') && !el.closest('.footer') && !el.closest('.navbar')) {
+                el.style.color = '#2c3e50';
+            }
+        });
+
+        // Update table headers that aren't in navbar/footer/jumbotron
+        document.querySelectorAll('.table thead th').forEach(th => {
+            th.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            th.style.color = '#ffffff';
         });
     }
 }

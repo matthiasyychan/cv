@@ -590,6 +590,56 @@ h2::before {
     color: #ffffff !important;
 }
 
+/* Dark mode - Force ALL text to white with maximum specificity */
+[data-bs-theme="dark"],
+[data-bs-theme="dark"] *,
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] h5,
+[data-bs-theme="dark"] h6,
+[data-bs-theme="dark"] p,
+[data-bs-theme="dark"] li,
+[data-bs-theme="dark"] ul li,
+[data-bs-theme="dark"] ol li,
+[data-bs-theme="dark"] td,
+[data-bs-theme="dark"] th,
+[data-bs-theme="dark"] span,
+[data-bs-theme="dark"] a,
+[data-bs-theme="dark"] label,
+[data-bs-theme="dark"] div,
+[data-bs-theme="dark"] .card,
+[data-bs-theme="dark"] .card *,
+[data-bs-theme="dark"] .card-body,
+[data-bs-theme="dark"] .card-body p,
+[data-bs-theme="dark"] .card-body ul,
+[data-bs-theme="dark"] .card-body li,
+[data-bs-theme="dark"] .card-body *,
+[data-bs-theme="dark"] .card-header,
+[data-bs-theme="dark"] .card-header *,
+[data-bs-theme="dark"] .collapse,
+[data-bs-theme="dark"] .collapse *,
+[data-bs-theme="dark"] #accordion,
+[data-bs-theme="dark"] #accordion *,
+[data-bs-theme="dark"] #accordion .card,
+[data-bs-theme="dark"] #accordion .card *,
+[data-bs-theme="dark"] #accordion .card-body,
+[data-bs-theme="dark"] #accordion .card-body p,
+[data-bs-theme="dark"] #accordion .card-body ul,
+[data-bs-theme="dark"] #accordion .card-body li {
+    color: #ffffff !important;
+}
+
+/* Dark mode links */
+[data-bs-theme="dark"] a:not(.btn):not(.navbar-brand) {
+    color: #00d4ff !important;
+}
+
+[data-bs-theme="dark"] a:not(.btn):not(.navbar-brand):hover {
+    color: #ff6b6b !important;
+}
+
 /* Form inputs styling for both modes */
 .form-control {
     background-color: rgba(255, 255, 255, 0.9);
