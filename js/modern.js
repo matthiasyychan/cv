@@ -34,16 +34,15 @@ class ModernCV {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
                 // Only set light mode if explicitly saved
+                this.disableDarkMode();
                 icon.className = 'fas fa-moon';
             } else {
-                // Default to dark mode
-                setTimeout(() => {
-                    this.enableDarkMode();
-                    icon.className = 'fas fa-sun';
-                    if (!savedTheme) {
-                        localStorage.setItem('theme', 'dark');
-                    }
-                }, 100);
+                // Default to dark mode - apply immediately
+                this.enableDarkMode();
+                icon.className = 'fas fa-sun';
+                if (!savedTheme) {
+                    localStorage.setItem('theme', 'dark');
+                }
             }
 
             toggle.addEventListener('click', () => {
@@ -258,7 +257,7 @@ class ModernCV {
         document.querySelectorAll('.card').forEach(card => {
             card.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
             card.style.borderColor = 'rgba(0, 0, 0, 0.1)';
-            card.style.color = '#2c3e50';
+            card.style.setProperty('color', '#2c3e50', 'important');
         });
 
         // Reset navbar for light mode
@@ -286,19 +285,54 @@ class ModernCV {
         document.querySelectorAll('input, textarea, select').forEach(input => {
             input.style.backgroundColor = '#ffffff';
             input.style.borderColor = '#ced4da';
-            input.style.color = '#2c3e50';
+            input.style.setProperty('color', '#2c3e50', 'important');
         });
 
         // Reset tabs for light mode with dark text
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.style.background = 'rgba(255, 255, 255, 0.9)';
-            tab.style.color = '#2c3e50';
+            tab.style.setProperty('color', '#2c3e50', 'important');
         });
 
-        // Update text colors for light mode
-        document.querySelectorAll('h2, h3, h4, h5, h6, p, li, td, th, span').forEach(el => {
+        // Force ALL text elements to dark color for light mode with !important
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, th, span, a, label, dt, dd, i, b, strong, em').forEach(el => {
+            // Keep navbar, footer, and jumbotron text white
             if (!el.closest('.jumbotron') && !el.closest('.footer') && !el.closest('.navbar')) {
-                el.style.color = '#2c3e50';
+                // Skip if it's a special styled element like the handwriting
+                if (!el.classList.contains('handwriting') && !el.style.backgroundClip) {
+                    el.style.setProperty('color', '#2c3e50', 'important');
+                }
+            }
+        });
+
+        // Reset card text specifically with !important
+        document.querySelectorAll('.card-text, .card-body, .card-body *, .card-header, .card-header *').forEach(el => {
+            if (!el.classList.contains('handwriting') && !el.classList.contains('badge')) {
+                el.style.setProperty('color', '#2c3e50', 'important');
+            }
+        });
+
+        // Reset all list items in cards
+        document.querySelectorAll('.card ul li, .card ol li').forEach(li => {
+            li.style.setProperty('color', '#2c3e50', 'important');
+        });
+
+        // Reset breadcrumb and other Bootstrap components
+        document.querySelectorAll('.breadcrumb, .breadcrumb-item').forEach(el => {
+            el.style.setProperty('color', '#2c3e50', 'important');
+        });
+
+        // Force update all divs that might contain text
+        document.querySelectorAll('div, section, article, aside').forEach(el => {
+            if (el.textContent && !el.closest('.handwriting') && !el.closest('.jumbotron') && !el.closest('.footer') && !el.closest('.navbar')) {
+                el.style.setProperty('color', '#2c3e50', 'important');
+            }
+        });
+
+        // Update table styling for light mode
+        document.querySelectorAll('.table, .table tbody, .table tbody tr, .table tbody td, .table tbody th').forEach(table => {
+            if (!table.closest('.jumbotron') && !table.closest('.footer')) {
+                table.style.setProperty('color', '#2c3e50', 'important');
             }
         });
 

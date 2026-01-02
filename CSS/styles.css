@@ -640,6 +640,57 @@ h2::before {
     color: #ff6b6b !important;
 }
 
+[data-bs-theme="dark"] a:not(.btn):not(.navbar-brand):hover {
+    color: #ff6b6b !important;
+}
+
+/* Light mode text colors - ensure dark text on light backgrounds */
+body:not([data-bs-theme="dark"]),
+body:not([data-bs-theme="dark"]) .card,
+body:not([data-bs-theme="dark"]) .card-body,
+body:not([data-bs-theme="dark"]) .card-body *,
+body:not([data-bs-theme="dark"]) #accordion,
+body:not([data-bs-theme="dark"]) #accordion *,
+body:not([data-bs-theme="dark"]) #accordion .card,
+body:not([data-bs-theme="dark"]) #accordion .card *,
+body:not([data-bs-theme="dark"]) p,
+body:not([data-bs-theme="dark"]) li,
+body:not([data-bs-theme="dark"]) td,
+body:not([data-bs-theme="dark"]) th,
+body:not([data-bs-theme="dark"]) span:not(.navbar-brand *):not(.jumbotron *):not(.footer *),
+body:not([data-bs-theme="dark"]) div:not(.navbar-dark *):not(.jumbotron *):not(.footer *) {
+    color: #2c3e50 !important;
+}
+
+/* Light mode - keep navbar, jumbotron, footer with white text */
+body:not([data-bs-theme="dark"]) .navbar-dark,
+body:not([data-bs-theme="dark"]) .navbar-dark *,
+body:not([data-bs-theme="dark"]) .footer,
+body:not([data-bs-theme="dark"]) .footer * {
+    color: #ffffff !important;
+}
+
+/* Light mode jumbotron - white text for name but dark text for card content */
+body:not([data-bs-theme="dark"]) .jumbotron .handwriting,
+body:not([data-bs-theme="dark"]) .jumbotron h1,
+body:not([data-bs-theme="dark"]) .jumbotron-text {
+    color: #ffffff !important;
+}
+
+/* Light mode profile card - dark text on light background */
+body:not([data-bs-theme="dark"]) .jumbotron .card,
+body:not([data-bs-theme="dark"]) .jumbotron .card *,
+body:not([data-bs-theme="dark"]) .jumbotron .card-body,
+body:not([data-bs-theme="dark"]) .jumbotron .card-body *,
+body:not([data-bs-theme="dark"]) .jumbotron .card-text {
+    color: #2c3e50 !important;
+}
+
+/* Light mode table headers */
+body:not([data-bs-theme="dark"]) .table thead th {
+    color: #ffffff !important;
+}
+
 /* Form inputs styling for both modes */
 .form-control {
     background-color: rgba(255, 255, 255, 0.9);
