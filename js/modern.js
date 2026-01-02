@@ -30,19 +30,17 @@ class ModernCV {
             const toggle = document.getElementById('darkModeToggle');
             const icon = document.getElementById('darkModeIcon');
 
-            // Check for saved theme preference or default to dark
-            const savedTheme = localStorage.getItem('theme');
+            // Check for saved theme preference or default to dark mode
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             if (savedTheme === 'light') {
-                // Only set light mode if explicitly saved
+                // Only set light mode if explicitly saved as light
                 this.disableDarkMode();
                 icon.className = 'fas fa-moon';
             } else {
                 // Default to dark mode - apply immediately
                 this.enableDarkMode();
                 icon.className = 'fas fa-sun';
-                if (!savedTheme) {
-                    localStorage.setItem('theme', 'dark');
-                }
+                localStorage.setItem('theme', 'dark');
             }
 
             toggle.addEventListener('click', () => {
