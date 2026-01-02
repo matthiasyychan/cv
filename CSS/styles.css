@@ -1,12 +1,26 @@
-/* Modern CSS for 2026 */
+/* 2026 Futuristic Design System */
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --accent-color: #ff6b6b;
-    --text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    --border-radius: 15px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+    --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ffa500 50%, #ff6b6b 100%);
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --cyber-gradient: linear-gradient(45deg, #00d4ff 0%, #090979 50%, #00d4ff 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+    --text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    --box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0, 212, 255, 0.1);
+    --border-radius: 20px;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --backdrop-blur: blur(20px);
+}
+
+/* Light mode defaults */
+[data-bs-theme="light"] body,
+body:not([data-bs-theme]) {
+    --primary-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-glow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 .row-header{
@@ -22,31 +36,62 @@
     transition: var(--transition);
 }
 
-.footer{
-    background: var(--primary-gradient);
+/* Enhanced footer */
+.footer {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
     margin:0px auto;
     padding: 30px 0px 30px 0px;
     color: white;
-    box-shadow: var(--box-shadow);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    animation: footerScan 3s linear infinite;
+}
+
+@keyframes footerScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 .jumbotron {
-    padding:80px 30px 80px 30px;
-    margin:0px auto;
-    background: var(--primary-gradient);
+    padding: 100px 30px 100px 30px;
+    margin: 80px auto 0;
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--box-shadow);
 }
 
 .jumbotron::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.15)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.1;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.1), transparent 60deg, transparent 120deg, rgba(255, 107, 107, 0.1), transparent 180deg, transparent 240deg, rgba(102, 126, 234, 0.1), transparent);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .jumbotron-text {
@@ -64,21 +109,72 @@ address{
 body{
     padding:50px 0px 0px 0px;
     z-index:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #ffffff;
+    background: var(--primary-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .navbar-dark {
-     background: var(--primary-gradient);
-     backdrop-filter: blur(10px);
-     border-bottom: 1px solid rgba(255,255,255,0.1);
+     background: var(--glass-bg);
+     backdrop-filter: var(--backdrop-blur);
+     border: 1px solid var(--glass-border);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1030;
 }
 
 .handwriting{
     font-family: 'Parisienne', cursive;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: var(--text-shadow);
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b, #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { filter: brightness(1) drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); }
+    to { filter: brightness(1.2) drop-shadow(0 0 15px rgba(0, 212, 255, 0.8)); }
 }
 
 .image-smaller {
@@ -87,78 +183,211 @@ body{
 }
 
 .image-border {
-    border: 3px solid rgba(255,255,255,0.8);
+    border: 2px solid var(--glass-border);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--neon-glow), 0 10px 30px rgba(0,0,0,0.3);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--cyber-gradient);
+    border-radius: var(--border-radius);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-border:hover::before {
+    opacity: 1;
 }
 
 .image-border:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0, 212, 255, 0.6);
+    border-color: rgba(0, 212, 255, 0.8);
 }
 
 .tab-content {
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--border-radius);
+    box-shadow: var(--neon-glow);
 }
 
-/* Modern card styling */
-.card {
-    border: none;
+/* Futuristic nav tabs */
+.nav-pills .nav-link {
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 10px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-pills .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--cyber-gradient);
+    transition: left 0.3s;
+    z-index: -1;
+}
+
+.nav-pills .nav-link:hover::before,
+.nav-pills .nav-link.active::before {
+    left: 0;
+}
+
+.nav-pills .nav-link.active {
+    background: var(--cyber-gradient);
+    color: white;
+    box-shadow: var(--neon-glow);
+}
+
+/* Futuristic card styling */
+.card {
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--neon-glow);
+    transition: var(--transition);
+    backdrop-filter: var(--backdrop-blur);
+    background: var(--glass-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.card:hover::before {
+    left: 100%;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), var(--neon-glow), 0 0 30px rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.5);
 }
 
-/* Modern button styling */
+/* Cyberpunk button styling */
 .btn {
-    border-radius: 25px;
+    border-radius: var(--border-radius);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     transition: var(--transition);
-    border: none;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
-    background: var(--secondary-gradient);
-    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+    background: var(--cyber-gradient);
+    box-shadow: var(--neon-glow);
+    color: white;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4), var(--neon-glow);
+    border-color: rgba(0, 212, 255, 0.8);
 }
 
-/* Modern table styling */
+/* Futuristic table styling */
 .table {
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--neon-glow);
+    backdrop-filter: var(--backdrop-blur);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
 }
 
 .table thead th {
-    background: var(--primary-gradient);
+    background: var(--cyber-gradient);
     color: white;
     border: none;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    position: relative;
 }
 
-/* Star rating styling */
+.table thead th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.table tbody tr {
+    transition: var(--transition);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+/* Cyberpunk star rating styling */
 .fa-star.checked {
-    color: #ffd700;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 0 0 20px rgba(0, 212, 255, 0.4);
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 1));
+}
+
+.fa-star {
+    transition: var(--transition);
+}
+
+.fa-star:hover {
+    transform: scale(1.2);
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
 }
 
 /* Smooth scrolling */
@@ -186,7 +415,65 @@ a {
 }
 
 a:hover {
-    color: var(--accent-color);
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Cyberpunk section headers */
+h2 {
+    position: relative;
+    color: white;
+    text-shadow: var(--text-shadow);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--cyber-gradient);
+    border-radius: 1px;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: var(--cyber-gradient);
+    border-radius: 1px;
+    animation: headerGlow 2s ease-in-out infinite;
+}
+
+@keyframes headerGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.4); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+    animation: pulse 3s ease-in-out infinite;
 }
 
 /* Modern Responsive Design */
@@ -253,5 +540,115 @@ a:hover {
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
+    }
+}
+
+/* Futuristic link styling */
+.footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+    position: relative;
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--cyber-gradient);
+    transition: width 0.3s;
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+.footer a:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Additional dark mode support */
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+}
+
+[data-bs-theme="dark"] body {
+    background: var(--primary-gradient) !important;
+    color: #ffffff !important;
+}
+
+/* Form inputs styling for both modes */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.25);
+    color: #333;
+}
+
+/* Dark mode form inputs */
+[data-bs-theme="dark"] .form-control {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(0, 212, 255, 0.5) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.25) !important;
+}
+
+/* Dark mode toggle - positioned next to email button */
+#darkModeToggle {
+    margin-left: 20px !important; /* Spacing from email button */
+    padding: 0.375rem 0.75rem !important;
+    border-radius: var(--border-radius) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+#darkModeToggle:hover {
+    background: rgba(0, 212, 255, 0.2) !important;
+    border-color: rgba(0, 212, 255, 0.5) !important;
+    color: #00d4ff !important;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2) !important;
+}
+
+/* Mobile responsive - align dark mode toggle with social buttons */
+@media (max-width: 991px) {
+    .navbar-collapse .navbar-nav {
+        align-items: flex-start !important;
+    }
+    
+    #darkModeToggle {
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+        display: inline-block !important;
+        text-align: center !important;
+    }
+    
+    .navbar-nav .btn-social-icon {
+        margin-bottom: 10px;
     }
 }

@@ -15,15 +15,15 @@ class ModernCV {
 
     setupDarkMode() {
         // Create dark mode toggle button
-        const navbar = document.querySelector('.navbar-nav');
+        // Select the SECOND navbar-nav (the one with social buttons, not the menu items)
+        const navbars = document.querySelectorAll('.navbar-nav');
+        const navbar = navbars[1]; // Second navbar-nav contains social buttons
         if (navbar) {
-            const darkModeToggle = document.createElement('li');
-            darkModeToggle.className = 'nav-item';
-            darkModeToggle.innerHTML = `
-                <button id="darkModeToggle" class="btn btn-link nav-link" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon" id="darkModeIcon"></i>
-                </button>
-            `;
+            const darkModeToggle = document.createElement('a');
+            darkModeToggle.className = 'btn btn-link';
+            darkModeToggle.id = 'darkModeToggle';
+            darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon" id="darkModeIcon"></i>';
             navbar.appendChild(darkModeToggle);
 
             // Setup dark mode functionality
@@ -33,18 +33,21 @@ class ModernCV {
             // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-                icon.className = 'fas fa-sun';
+                // Apply dark mode immediately
+                setTimeout(() => {
+                    this.enableDarkMode();
+                    icon.className = 'fas fa-sun';
+                }, 100);
             }
 
             toggle.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-bs-theme');
                 if (currentTheme === 'dark') {
-                    document.documentElement.removeAttribute('data-bs-theme');
+                    this.disableDarkMode();
                     localStorage.setItem('theme', 'light');
                     icon.className = 'fas fa-moon';
                 } else {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                    this.enableDarkMode();
                     localStorage.setItem('theme', 'dark');
                     icon.className = 'fas fa-sun';
                 }
@@ -140,6 +143,86 @@ class ModernCV {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
+
+    enableDarkMode() {
+        // Apply Bootstrap dark theme
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+
+        // Force background change for body (darker version)
+        document.body.style.background = 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%) !important';
+        document.body.style.color = '#ffffff !important';
+
+        // Update all cards for dark mode
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = 'rgba(255, 255, 255, 0.05) !important';
+            card.style.borderColor = 'rgba(255, 255, 255, 0.1) !important';
+            card.style.color = '#ffffff !important';
+        });
+
+        // Update navbar
+        const navbar = document.querySelector('.navbar-dark');
+        if (navbar) navbar.style.background = 'rgba(255, 255, 255, 0.05) !important';
+
+        // Update jumbotron
+        const jumbotron = document.querySelector('.jumbotron');
+        if (jumbotron) jumbotron.style.background = 'rgba(255, 255, 255, 0.05) !important';
+
+        // Update footer
+        const footer = document.querySelector('.footer');
+        if (footer) footer.style.background = 'rgba(255, 255, 255, 0.05) !important';
+
+        // Update form inputs for dark mode
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.style.backgroundColor = 'rgba(255, 255, 255, 0.05) !important';
+            input.style.borderColor = 'rgba(255, 255, 255, 0.2) !important';
+            input.style.color = '#ffffff !important';
+        });
+
+        // Update tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.background = 'rgba(255, 255, 255, 0.05) !important';
+        });
+    }
+
+    disableDarkMode() {
+        // Remove Bootstrap dark theme
+        document.documentElement.removeAttribute('data-bs-theme');
+
+        // Reset to original futuristic theme (the default is already dark-like)
+        document.body.style.background = '';
+        document.body.style.color = '';
+
+        // Reset all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = '';
+            card.style.borderColor = '';
+            card.style.color = '';
+        });
+
+        // Reset navbar
+        const navbar = document.querySelector('.navbar-dark');
+        if (navbar) navbar.style.background = '';
+
+        // Reset jumbotron
+        const jumbotron = document.querySelector('.jumbotron');
+        if (jumbotron) jumbotron.style.background = '';
+
+        // Reset footer
+        const footer = document.querySelector('.footer');
+        if (footer) footer.style.background = '';
+
+        // Reset form inputs
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.style.backgroundColor = '';
+            input.style.borderColor = '';
+            input.style.color = '';
+        });
+
+        // Reset tabs
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.background = '';
+        });
+    }
 }
 
 // Initialize when DOM is loaded
@@ -165,31 +248,121 @@ style.textContent = `
         }
     }
 
-    /* Dark mode styles */
+    /* Enhanced dark mode styles */
     [data-bs-theme="dark"] {
-        --bs-body-color: #e9ecef;
-        --bs-body-bg: #212529;
+        --bs-body-color: #ffffff;
+        --bs-body-bg: #0a0a0f;
+    }
+
+    [data-bs-theme="dark"] body {
+        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%) !important;
+        color: #ffffff !important;
+    }
+
+    [data-bs-theme="dark"] body::before {
+        background:
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+    }
+
+    [data-bs-theme="dark"] body::after {
+        background-image:
+            linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
     }
 
     [data-bs-theme="dark"] .card {
-        background-color: rgba(33, 37, 41, 0.8);
-        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(255, 107, 107, 0.2) !important;
+        color: #ffffff !important;
     }
 
     [data-bs-theme="dark"] .footer {
-        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
     }
 
     [data-bs-theme="dark"] .jumbotron {
-        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
     }
 
     [data-bs-theme="dark"] .table {
-        background-color: rgba(33, 37, 41, 0.8);
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
     }
 
     [data-bs-theme="dark"] .table thead th {
-        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%) !important;
+        color: white !important;
+    }
+
+    [data-bs-theme="dark"] .navbar-dark {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    [data-bs-theme="dark"] .tab-content {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+    }
+
+    /* Form inputs in dark mode */
+    [data-bs-theme="dark"] input,
+    [data-bs-theme="dark"] textarea,
+    [data-bs-theme="dark"] select {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+    }
+
+    [data-bs-theme="dark"] input::placeholder,
+    [data-bs-theme="dark"] textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    [data-bs-theme="dark"] .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(0, 212, 255, 0.5) !important;
+        color: #ffffff !important;
+        box-shadow: 0 0 0 0.2rem rgba(0, 212, 255, 0.25) !important;
+    }
+
+    /* Links and text in dark mode */
+    [data-bs-theme="dark"] a {
+        color: #00d4ff !important;
+    }
+
+    [data-bs-theme="dark"] a:hover {
+        color: #ff6b6b !important;
+        text-shadow: 0 0 10px rgba(255, 107, 107, 0.5) !important;
+    }
+
+    [data-bs-theme="dark"] h2 {
+        color: #ffffff !important;
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
+    }
+
+    /* Button styling in dark mode */
+    [data-bs-theme="dark"] .btn {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        color: #ffffff !important;
+    }
+
+    [data-bs-theme="dark"] .btn-primary {
+        background: linear-gradient(45deg, #00d4ff 0%, #090979 50%, #00d4ff 100%) !important;
+        border-color: rgba(0, 212, 255, 0.5) !important;
+    }
+
+    [data-bs-theme="dark"] .btn-primary:hover {
+        background: linear-gradient(45deg, #ff6b6b 0%, #ffa500 100%) !important;
+        border-color: rgba(255, 107, 107, 0.8) !important;
     }
 `;
 document.head.appendChild(style);
