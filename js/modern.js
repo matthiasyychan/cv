@@ -26,6 +26,12 @@ class ModernCV {
             darkModeToggle.innerHTML = '<i class="fas fa-moon" id="darkModeIcon"></i>';
             navbar.appendChild(darkModeToggle);
 
+            // Move language toggle to the right of dark mode button
+            const languageToggle = navbar.querySelector('.language-toggle');
+            if (languageToggle) {
+                darkModeToggle.insertAdjacentElement('afterend', languageToggle);
+            }
+
             // Setup dark mode functionality
             const toggle = document.getElementById('darkModeToggle');
             const icon = document.getElementById('darkModeIcon');

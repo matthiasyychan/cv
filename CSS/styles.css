@@ -746,6 +746,11 @@ body:not([data-bs-theme="dark"]) .table thead th {
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2) !important;
 }
 
+/* Spacing for language toggle next to dark mode */
+.language-toggle {
+    margin-left: 10px !important;
+}
+
 /* Mobile responsive - align dark mode toggle with social buttons */
 /* Custom styling for email button (btn-reddit) */
 .btn-reddit {
